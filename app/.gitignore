@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Mac
+.DS_Store
+
+# Environment
+.env
+
+# VS Code
+.vscode/
+
+# Outputs
+outputs/
+
+# Temporary files
+*.tmp
+
+# Streamlit cache
+.streamlit/
+
+# Large model files (optional)
+# *.keras
