@@ -57,8 +57,8 @@ st.markdown(
 @st.cache_resource
 def load_models():
 
-    cnn_path = "../models/pneumonia_cnn_model.keras"
-    densenet_path = "../models/densenet121_model.keras"
+    cnn_path = "models/pneumonia_cnn_model.keras"
+    densenet_path = "models/densenet121_model.keras"
 
     cnn = tf.keras.models.load_model(
         cnn_path,
