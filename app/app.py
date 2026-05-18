@@ -61,13 +61,15 @@ def load_models():
     densenet_path = "models/densenet121_model.keras"
 
     cnn = tf.keras.models.load_model(
-        cnn_path,
-        compile=False
+    cnn_path,
+    compile=False,
+    safe_mode=False
     )
 
     densenet = tf.keras.models.load_model(
         densenet_path,
-        compile=False
+    compile=False,
+    safe_mode=False
     )
 
     return cnn, densenet
