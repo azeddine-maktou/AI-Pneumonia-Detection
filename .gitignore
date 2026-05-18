@@ -25,3 +25,5 @@ outputs/
 
 # Large model files (optional)
 # *.keras
+
+dataset_pneumonia/
