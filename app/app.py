@@ -57,23 +57,18 @@ st.markdown(
 @st.cache_resource
 def load_models():
 
-    BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+    cnn_path = "../models/pneumonia_cnn_model.keras"
+    densenet_path = "../models/densenet121_model.keras"
 
-    cnn_path = os.path.join(
-        BASE_DIR,
-        "models",
-        "pneumonia_cnn_model.keras"
+    cnn = tf.keras.models.load_model(
+        cnn_path,
+        compile=False
     )
 
-    densenet_path = os.path.join(
-        BASE_DIR,
-        "models",
-        "densenet121_model.keras"
+    densenet = tf.keras.models.load_model(
+        densenet_path,
+        compile=False
     )
-
-    cnn = tf.keras.models.load_model(cnn_path)
-
-    densenet = tf.keras.models.load_model(densenet_path)
 
     return cnn, densenet
 
