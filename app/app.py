@@ -524,7 +524,6 @@ if analyze:
         # =================================================
 
         normal_prob = (1 - score) * 100
-
         pneumonia_prob = score * 100
 
         # =================================================
@@ -561,75 +560,73 @@ if analyze:
             use_container_width=True
         )
 
-        
-    # =================================================
-    # PROBABILITY CHART
-    # =================================================
+        # =================================================
+        # PROBABILITY CHART
+        # =================================================
 
-    if show_probability:
+        if show_probability:
 
-        st.subheader("Prediction Probabilities")
+            st.subheader("Prediction Probabilities")
 
-        fig_bar = go.Figure(data=[
+            fig_bar = go.Figure(data=[
 
-            go.Bar(
+                go.Bar(
 
-                x=["NORMAL", "PNEUMONIA"],
+                    x=["NORMAL", "PNEUMONIA"],
 
-                y=[normal_prob, pneumonia_prob],
+                    y=[normal_prob, pneumonia_prob],
 
-                text=[
+                    text=[
 
-                    f"{normal_prob:.1f}%",
+                        f"{normal_prob:.1f}%",
 
-                    f"{pneumonia_prob:.1f}%"
-                ],
+                        f"{pneumonia_prob:.1f}%"
+                    ],
 
-                textposition="auto",
+                    textposition="auto",
 
-                marker=dict(
+                    marker=dict(
 
-                    color=[
+                        color=[
 
-                        "#3B82F6",
+                            "#3B82F6",
 
-                        "#8DBFFF"
+                            "#8DBFFF"
 
-                    ]
+                        ]
+                    )
                 )
+
+            ])
+
+            fig_bar.update_layout(
+
+                title="AI Prediction Confidence",
+
+                yaxis_title="Probability (%)",
+
+                xaxis_title="Classes",
+
+                paper_bgcolor="#0E1117",
+
+                plot_bgcolor="#111827",
+
+                font=dict(
+
+                    color="white",
+
+                    size=14
+                ),
+
+                height=450
             )
 
-        ])
+            st.plotly_chart(
 
-        fig_bar.update_layout(
+                fig_bar,
 
-            title="AI Prediction Confidence",
-
-            yaxis_title="Probability (%)",
-
-            xaxis_title="Classes",
-
-            paper_bgcolor="#0E1117",
-
-            plot_bgcolor="#111827",
-
-            font=dict(
-
-                color="white",
-
-                size=14
-            ),
-
-            height=450
-        )
-
-        st.plotly_chart(
-
-            fig_bar,
-
-            use_container_width=True
-        )
-
+                use_container_width=True
+            )
         # =================================================
         # MODEL COMPARISON
         # =================================================
